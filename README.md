@@ -7,6 +7,4 @@ So this is my attempt to make CSS a little easier and faster.
 
 http://flexfun.3e.io/
 
-#### Update 02-Nov-15
-Nothing is updated.
-Will try and catch up tomorrow.
+If you want to use it, make sure to run it through https://autoprefixer.github.io/ or something like that.
