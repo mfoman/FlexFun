@@ -1,0 +1,137 @@
+// === Variable declaration & Mixins ===
+
+// Always Lato
+$lato: 'Lato', sans-serif
+
+// Max width
+$width_max: 12
+
+// Bootstrap colors
+$boot_red: #d9534f
+$boot_blue: #337ab7
+$boot_green: #5cb85c
+$boot_yellow: #f0ad4e
+
+// Mixins
+@mixin ratio($height, $width)
+  position: relative
+  &::before
+    content: ''
+    display: block
+    padding-top: $height/$width*100%
+
+@mixin width-col($width, $max: $width_max)
+  width: $width/$max*100%
+@mixin width-flex($width, $max: $width_max)
+  flex: 0 0 $width/$max*100%
+@mixin left($width, $max: $width_max)
+  margin-left: $width/$max*100%
+@mixin right($width, $max: $width_max)
+  margin-right: $width/$max*100%
+@mixin pint($cols)
+  -webkit-column-count: $cols
+  -webkit-column-fill: auto
+  > *
+    display: inline-block
+@mixin pint-gap($i)
+  -webkit-column-gap: 5px*$i
+
+/* === Helper classes ===
+.red
+  background: $boot_red
+.blue
+  background: $boot_blue
+.green
+  background: $boot_green
+.yellow
+  background: $boot_yellow
+.child-color > *
+  &:nth-child(4n+1)
+    background: $boot_red
+  &:nth-child(4n+2)
+    background: $boot_blue
+  &:nth-child(4n+3)
+    background: $boot_green
+  &:nth-child(4n+4)
+    background: $boot_yellow
+
+.box
+  box-sizing: border-box
+.text-center
+  text-align: center
+
+/* === Ratios ===
+.ratio-1-1
+  @include ratio(1,1)
+.ratio-1-2
+  @include ratio(1,2)
+.ratio-1-3
+  @include ratio(1,3)
+.ratio-2-1
+  @include ratio(2,1)
+.ratio-2-3
+  @include ratio(2,3)
+.ratio-3-1
+  @include ratio(3,1)
+.ratio-3-2
+  @include ratio(3,2)
+
+/* === FlexFun ===
+.flexfun
+  .flex
+    display: flex
+    &.flex-in
+      display: flex-inline
+    &.flow-col
+      flex-direction: column
+    &.flow-wrap
+      flex-wrap: wrap
+    &.hor-start
+      justify-content: flex-start
+    &.hor-center
+      justify-content: center
+    &.hor-end
+      justify-content: flex-end
+    &.hor-around
+      justify-content: space-around
+    &.hor-between
+      justify-content: space-between
+    &.ver-start
+      align-items: flex-start
+    &.ver-center
+      align-items: center
+    &.ver-end
+      align-items: flex-end
+    &.lines-start
+      align-content: flex-start
+    &.lines-center
+      align-content: center
+    &.lines-end
+      align-content: flex-end
+
+  @each $size, $width in (xs: 0, sm: 48em, md: 62em, lg: 75em)
+    @media (min-width: #{$width})
+      .hide-#{$size}
+        display: hidden
+      .show-#{$size}
+        display: block
+      @for $i from 1 to 13
+        .col-#{$size}-#{$i},
+        .col-child-#{$size}-#{$i} > *
+          @include width-col($i)
+        .flex
+          .flex-#{$size}-#{$i},
+          &.flex-child-#{$size}-#{$i} > *
+            @include width-flex($i)
+          .grow-#{$size}-#{$i}
+            flex-grow: $i
+          &.grow-child-#{$size}-#{$i} > *
+            flex-grow: $i
+        .left-#{$size}-#{$i}
+          @include left($i)
+        .right-#{$size}-#{$i}
+          @include right($i)
+        .pint-#{$size}-#{$i}
+          @include pint($i)
+        .pint-gap-#{$size}-#{$i}
+          @include pint-gap($i)
