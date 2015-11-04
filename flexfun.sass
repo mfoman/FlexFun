@@ -21,7 +21,7 @@ $boot_yellow: #f0ad4e
     padding-top: $height/$width*100%
 
 @mixin width-col($width, $max: $width_max)
-  width: $width/$max*100%
+  min-width: $width/$max*100%
 @mixin width-flex($width, $max: $width_max)
   flex: 0 0 $width/$max*100%
 @mixin left($width, $max: $width_max)
@@ -29,12 +29,12 @@ $boot_yellow: #f0ad4e
 @mixin right($width, $max: $width_max)
   margin-right: $width/$max*100%
 @mixin pint($cols)
-  -webkit-column-count: $cols
-  -webkit-column-fill: auto
+  column-count: $cols
+  column-fill: auto
   > *
     display: inline-block
 @mixin pint-gap($i)
-  -webkit-column-gap: 5px*$i
+  column-gap: 5px*$i
 
 /* === Helper classes ===
 .red
