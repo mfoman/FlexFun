@@ -3,6 +3,8 @@
 
 So this is my attempt to make CSS a little easier and faster.
 
+https://github.com/mfoman/FlexFun/wiki
+
 ### No good IE support(who cares)
 
 Cheat Sheet: http://flexfun.3e.io/
