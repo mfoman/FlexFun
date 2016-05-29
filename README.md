@@ -8,7 +8,3 @@ https://github.com/mfoman/FlexFun/wiki
 ### No good IE support(who cares)
 
 Cheat Sheet: http://flexfun.3e.io/
-
-#### Built with FlexFun (best seen in chrome)
-
-http://dashr.me/
